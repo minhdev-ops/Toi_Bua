@@ -5,33 +5,29 @@ spring:
     name: gateway
   cloud:
     gateway:
+      # Mỗi route CHỈ được có MỘT predicate Path. Nhiều dòng "- Path=..." trong
+      # cùng một route bị Spring AND lại (RouteDefinitionRouteLocator dùng
+      # Predicate.and), nên "/v1/auth/**" AND "/v1/me/**" không bao giờ đúng.
+      # Nhiều pattern trong MỘT predicate thì được OR — đúng ý đồ định tuyến.
       routes:
         - id: identity
-          uri: http://identity:8081
+          uri: ${services.identity-url}
           predicates:
-            - Path=/v1/auth/**
-            - Path=/v1/me/**
-            - Path=/v1/config
-            - Path=/.well-known/jwks.json
+            - Path=/v1/auth/**,/v1/me/**,/v1/config,/.well-known/jwks.json
         - id: roulette
-          uri: http://roulette:8082
+          uri: ${services.roulette-url}
           predicates:
-            - Path=/v1/dishes/**
-            - Path=/v1/spins/**
-            - Path=/v1/exclusions
+            - Path=/v1/dishes/**,/v1/spins/**,/v1/exclusions
         - id: place
-          uri: http://place:8083
+          uri: ${services.place-url}
           predicates:
-            - Path=/v1/places/**
-            - Path=/v1/geocode
-            - Path=/v1/user-locations/**
-            - Path=/v1/matches
+            - Path=/v1/places/**,/v1/geocode,/v1/user-locations/**,/v1/matches
         - id: ranking
-          uri: http://ranking:8084
+          uri: ${services.ranking-url}
           predicates:
             - Path=/v1/rank/**
         - id: journal
-          uri: http://journal:8085
+          uri: ${services.journal-url}
           predicates:
             - Path=/v1/journal/**
       default-filters:
@@ -43,9 +39,18 @@ spring:
   data:
     redis:
       cluster:
-        nodes: redis1:7000,redis2:7000,redis3:7000,redis4:7000,redis5:7000,redis6:7000
+        nodes: ${REDIS_NODES:redis1:7000,redis2:7000,redis3:7000,redis4:7000,redis5:7000,redis6:7000}
+
+services:
+  identity-url: ${IDENTITY_URL:http://identity:8081}
+  roulette-url: ${ROULETTE_URL:http://roulette:8082}
+  place-url: ${PLACE_URL:http://place:8083}
+  ranking-url: ${RANKING_URL:http://ranking:8084}
+  journal-url: ${JOURNAL_URL:http://journal:8085}
+
 app:
-  cursor-secret: change-me-cursor-secret
+  cursor-secret: ${CURSOR_SECRET:change-me-cursor-secret}
+
 management:
   endpoints:
     web:

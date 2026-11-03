@@ -295,15 +295,18 @@ class _SpinHubScreenState extends ConsumerState<SpinHubScreen> {
   }
 
   Widget _secondary(BuildContext context, SpinFlow flow, S s) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    // Wrap chứ không Row: hai chip cạnh nhau vượt bề rộng 320dp và tràn ngang.
+    return Wrap(
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: AngiScale.s3,
+      runSpacing: AngiScale.s2,
       children: [
         StampChip(
           label: (strings) => strings.ctaFilters,
           icon: AngiIcons.tune,
           onTap: () => showFilterSheet(context),
         ),
-        const SizedBox(width: AngiScale.s3),
         if (flow.hasResult)
           StampChip(
             label: (strings) => strings.ctaSpinAgain,

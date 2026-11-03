@@ -30,8 +30,10 @@ class ResultStamp extends StatelessWidget {
     final card = StampCard(
       fill: hue,
       padding: const EdgeInsets.all(AngiScale.s6),
+      // Chỉ chặn bề NGANG. Chặn thêm maxHeight thì trên máy 320dp phần nội dung
+      // (ảnh + tên 2 dòng + nhóm món) cao hơn hộp 161dp và tràn dọc.
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: maxSize, maxHeight: maxSize),
+        constraints: BoxConstraints(maxWidth: maxSize),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -40,6 +42,8 @@ class ResultStamp extends StatelessWidget {
             Text(
               dish.displayLabel,
               textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: roles.display.copyWith(color: tokens.onData),
             ),
             if (dish.categoryPath.isNotEmpty) ...[
@@ -47,6 +51,8 @@ class ResultStamp extends StatelessWidget {
               Text(
                 dish.categoryPath.join(' · '),
                 textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: roles.micro.copyWith(color: tokens.onData),
               ),
             ],

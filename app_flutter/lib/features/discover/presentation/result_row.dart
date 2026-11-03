@@ -184,9 +184,16 @@ class ResultRow extends StatelessWidget {
       children: [
         Icon(AngiIcons.star, size: 14, color: t.accentText),
         const SizedBox(width: 2),
-        Text(
-          s.ratingWithCount(place.ratingBayesian.toStringAsFixed(1), place.reviewCount),
-          style: roles.micro.copyWith(color: t.muted),
+        // Row này nằm trong Wrap nên bị chặn bề rộng bằng bề rộng còn lại của cột.
+        // Không có Flexible thì Text đòi trọn chiều rộng tự nhiên và tràn
+        // ("A RenderFlex overflowed by 138 pixels") trên máy 360dp.
+        Flexible(
+          child: Text(
+            s.ratingWithCount(place.ratingBayesian.toStringAsFixed(1), place.reviewCount),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: roles.micro.copyWith(color: t.muted),
+          ),
         ),
       ],
     );

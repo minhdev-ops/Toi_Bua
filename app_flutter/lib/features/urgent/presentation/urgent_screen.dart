@@ -134,16 +134,36 @@ class UrgentScreen extends ConsumerWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    AngiFormat.distance(s, place.distanceM),
-                    style: roles.numericLg.copyWith(color: t.ink),
+                  // Cột trái phải co được: "1,2 km" + "khoảng cách" cộng lại vượt
+                  // 252dp trên máy 320dp và tràn 165px nếu để kích thước tự nhiên.
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            AngiFormat.distance(s, place.distanceM),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: roles.numericLg.copyWith(color: t.ink),
+                          ),
+                        ),
+                        const SizedBox(width: AngiScale.s2),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: AngiScale.s1),
+                            child: Text(
+                              s.detailDistance,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: roles.micro.copyWith(color: t.muted),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(width: AngiScale.s2),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: AngiScale.s1),
-                    child: Text(s.detailDistance, style: roles.micro.copyWith(color: t.muted)),
-                  ),
-                  const Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
