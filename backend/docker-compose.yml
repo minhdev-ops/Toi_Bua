@@ -1,0 +1,176 @@
+version: "3.9"
+
+# Angi backend — Phase 1 (P1) local stack.
+# Services: postgres+postgis, redis cluster (6 nodes), and 6 Spring Boot microservices.
+# Build with:  docker compose up --build
+# App base URL: http://localhost:8080  (Spring Cloud Gateway)
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: angi-postgres
+    environment:
+      POSTGRES_DB: angi
+      POSTGRES_USER: angi
+      POSTGRES_PASSWORD: angi
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U angi -d angi"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis1:
+    image: redis:7
+    container_name: angi-redis1
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7000:7000"
+    healthcheck:
+      test: ["CMD", "redis-cli", "-p", "7000", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis2:
+    image: redis:7
+    container_name: angi-redis2
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7001:7000"
+
+  redis3:
+    image: redis:7
+    container_name: angi-redis3
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7002:7000"
+
+  redis4:
+    image: redis:7
+    container_name: angi-redis4
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7003:7000"
+
+  redis5:
+    image: redis:7
+    container_name: angi-redis5
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7004:7000"
+
+  redis6:
+    image: redis:7
+    container_name: angi-redis6
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "7005:7000"
+
+  redis-cluster-init:
+    image: redis:7
+    container_name: angi-redis-init
+    depends_on:
+      - redis1
+      - redis2
+      - redis3
+      - redis4
+      - redis5
+      - redis6
+    entrypoint: >
+      /bin/sh -c "
+      until redis-cli -h redis1 -p 7000 ping | grep -q PONG; do echo 'waiting redis...'; sleep 2; done;
+      redis-cli --cluster create redis1:7000 redis2:7000 redis3:7000 redis4:7000 redis5:7000 redis6:7000
+        --cluster-replicas 0 --cluster-yes;
+      echo 'redis cluster ready';
+      tail -f /dev/null
+      "
+
+  identity:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: identity } }
+    container_name: angi-identity
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-cluster-init:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8081:8081"
+
+  gateway:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: gateway } }
+    container_name: angi-gateway
+    depends_on:
+      - identity
+      - roulette
+      - place
+      - ranking
+      - journal
+    ports:
+      - "8080:8080"
+
+  roulette:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: roulette } }
+    container_name: angi-roulette
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-cluster-init:
+        condition: service_completed_successfully
+    ports:
+      - "8082:8082"
+
+  place:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: place } }
+    container_name: angi-place
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-cluster-init:
+        condition: service_completed_successfully
+      ranking:
+        condition: service_started
+    ports:
+      - "8083:8083"
+
+  ranking:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: ranking } }
+    container_name: angi-ranking
+    depends_on:
+      redis-cluster-init:
+        condition: service_completed_successfully
+    ports:
+      - "8084:8084"
+
+  journal:
+    build: { context: ., dockerfile: Dockerfile, args: { SERVICE: journal } }
+    container_name: angi-journal
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-cluster-init:
+        condition: service_completed_successfully
+      place:
+        condition: service_started
+    ports:
+      - "8085:8085"
+
+volumes:
+  pgdata:

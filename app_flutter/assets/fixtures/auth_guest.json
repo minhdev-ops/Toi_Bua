@@ -1,0 +1,9 @@
+{
+  "user": { "id": "usr_01J8Z8R6T0V2X4Y6", "kind": "guest", "display_name": null, "onboarding_completed": false },
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfMDFKOFo4UjZUMFYyWDRZNiIsImtpbmQiOiJndWVzdCIsInRpZXIiOjIsImlhdCI6MTc5MzE5ODQwMCwiZXhwIjoxNzkzMTk5MzAwfQ.mock",
+  "access_expires_in": 900,
+  "refresh_token": "rt_01J8Z8R6T0V2X4Y6A",
+  "refresh_expires_in": 2592000,
+  "consents_required": ["location"],
+  "policy_version": "2026.10"
+}

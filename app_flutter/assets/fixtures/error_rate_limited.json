@@ -1,0 +1,11 @@
+{
+  "error": {
+    "code": "RATE_LIMITED",
+    "message": "Bạn quay nhanh quá.",
+    "details": [ { "field": "rate", "rule": "per_minute", "allowed": 60, "retry_after_s": 30,
+                   "message_key": "err.spin.rate_limited" } ],
+    "request_id": "01J8Z6Q9K3M2T7V1",
+    "retryable": true,
+    "doc_url": "https://api.angi.example/docs/errors#RATE_LIMITED"
+  }
+}

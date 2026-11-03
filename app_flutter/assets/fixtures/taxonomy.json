@@ -1,0 +1,50 @@
+{
+  "version": 20261101,
+  "categories": [
+    { "id": "cat_01J8", "slug": "mon-nuoc", "name": "Món nước", "type": "noodle", "level": 1,
+      "children": [
+        { "id": "cat_01J9", "slug": "bun", "name": "Bún", "type": "noodle", "level": 2,
+          "children": [ { "id": "cat_01JA", "slug": "bun-bo", "name": "Bún bò", "type": "noodle", "level": 3 } ] },
+        { "id": "cat_01JB", "slug": "pho", "name": "Phở", "type": "noodle", "level": 2,
+          "children": [ { "id": "cat_01JC", "slug": "pho-bo", "name": "Phở bò", "type": "noodle", "level": 3 } ] }
+      ] },
+    { "id": "cat_01JD", "slug": "com", "name": "Cơm", "type": "rice", "level": 1,
+      "children": [
+        { "id": "cat_01JE", "slug": "com-tam", "name": "Cơm tấm", "type": "rice", "level": 2 },
+        { "id": "cat_01JF", "slug": "com-ga", "name": "Cơm gà", "type": "rice", "level": 2 }
+      ] },
+    { "id": "cat_01JG", "slug": "banh", "name": "Bánh", "type": "bread", "level": 1,
+      "children": [
+        { "id": "cat_01JH", "slug": "banh-mi", "name": "Bánh mì", "type": "bread", "level": 2 },
+        { "id": "cat_01JI", "slug": "banh-cuon", "name": "Bánh cuốn", "type": "bread", "level": 2 }
+      ] },
+    { "id": "cat_01JJ", "slug": "ngot", "name": "Chè - Kem - Bánh ngọt", "type": "sweet", "level": 1,
+      "children": [ { "id": "cat_01JK", "slug": "che", "name": "Chè", "type": "sweet", "level": 2 } ] },
+    { "id": "cat_01JL", "slug": "nuong", "name": "Đồ nướng", "type": "grill", "level": 1,
+      "children": [ { "id": "cat_01JM", "slug": "hai-san-nuong", "name": "Hải sản nướng", "type": "grill", "level": 2 } ] },
+    { "id": "cat_01JN", "slug": "rau", "name": "Rau - Salad - Chay", "type": "salad", "level": 1,
+      "children": [ { "id": "cat_01JO", "slug": "goi", "name": "Gỏi", "type": "salad", "level": 2 } ] },
+    { "id": "cat_01JP", "slug": "do-uong", "name": "Đồ uống", "type": "drink", "level": 1,
+      "children": [ { "id": "cat_01JQ", "slug": "cafe", "name": "Cà phê", "type": "drink", "level": 2 } ] },
+    { "id": "cat_01JR", "slug": "an-vat", "name": "Ăn vặt", "type": "snack", "level": 1,
+      "children": [ { "id": "cat_01JS", "slug": "nom", "name": "Nộm", "type": "snack", "level": 2 } ] }
+  ],
+  "filter_dimensions": {
+    "meal": ["breakfast", "lunch", "dinner", "late_night"],
+    "price_level": [1, 2, 3, 4],
+    "region": ["north", "central", "south", "all"],
+    "temp": ["hot", "warm", "cold"],
+    "mood": ["comfort", "light", "greedy", "fresh", "local_specialty", "quick"],
+    "party_size": [1, 2, 4, 6, 8],
+    "type": ["noodle", "rice", "bread", "sweet", "grill", "salad", "drink", "snack"],
+    "diet": ["vegetarian", "vegan", "halal", "no_pork", "no_beef"]
+  },
+  "tags": [
+    { "id": "tag_pork", "kind": "diet", "label": "Không chay", "label_en": "Contains pork" },
+    { "id": "tag_spicy", "kind": "attribute", "label": "Cay", "label_en": "Spicy" },
+    { "id": "tag_gluten", "kind": "allergen", "label": "Gluten", "label_en": "Gluten" },
+    { "id": "tag_seafood", "kind": "allergen", "label": "Hải sản", "label_en": "Seafood" },
+    { "id": "tag_vegan", "kind": "diet", "label": "Thuần chay", "label_en": "Vegan" }
+  ],
+  "counts": { "dishes": 342, "categories": 87, "tags": 46 }
+}

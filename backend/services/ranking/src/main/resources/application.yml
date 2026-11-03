@@ -1,0 +1,35 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: ranking
+  jackson:
+    default-property-inclusion: non_null
+  data:
+    redis:
+      cluster:
+        nodes: redis1:7000,redis2:7000,redis3:7000,redis4:7000,redis5:7000,redis6:7000
+app:
+  cursor-secret: change-me-cursor-secret
+ranking:
+  weights:
+    Q: 0.35
+    D: 0.25
+    P: 0.15
+    O: 0.15
+    U: 0.10
+  lambda:
+    walk: 600
+    bike: 2500
+    car: 6000
+  bayesian:
+    m: 20
+  penalty:
+    stale: 8
+    report: 10
+    fake: 15
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

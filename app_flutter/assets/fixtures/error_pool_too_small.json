@@ -1,0 +1,17 @@
+{
+  "error": {
+    "code": "POOL_TOO_SMALL",
+    "message": "Số món còn lại quá ít để quay.",
+    "details": [
+      { "field": "size_final", "rule": "min", "allowed": 3, "received": 2,
+        "message_key": "err.pool.too_small",
+        "suggested_relaxations": [
+          { "dimension": "anti_repeat.days", "from": 5, "to": 0, "expected_extra": 14 },
+          { "dimension": "price_level_max", "from": 1, "to": 2, "expected_extra": 9 }
+        ] }
+    ],
+    "request_id": "01J8Z6Q9K3M2T7V1",
+    "retryable": false,
+    "doc_url": "https://api.angi.example/docs/errors#POOL_TOO_SMALL"
+  }
+}

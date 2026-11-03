@@ -1,0 +1,8 @@
+{
+  "report_id": "rpt_01J8Z8T8V2X4Y6Z8",
+  "status": "open",
+  "queued_for_review": true,
+  "credited": false,
+  "affects_ranking_after_review": true,
+  "cooldown_s": 300
+}

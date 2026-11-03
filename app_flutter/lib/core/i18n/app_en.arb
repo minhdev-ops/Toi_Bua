@@ -1,0 +1,606 @@
+{
+  "@@locale": "en",
+  "appTitle": "WhatToEat",
+  "tabSpin": "Spin",
+  "tabPlaces": "Places",
+  "tabUrgent": "Starving",
+  "tabYou": "You",
+  "ctaSpin": "Spin",
+  "ctaSpinLoading": "Spinning",
+  "ctaSpinAgain": "Spin again",
+  "ctaFilters": "Filters",
+  "ctaApply": "Apply",
+  "ctaNavigate": "Directions",
+  "ctaNavOpening": "Opening maps",
+  "ctaArrived": "I arrived",
+  "ctaArrivedDone": "Saved",
+  "ctaDismiss": "Skip",
+  "ctaDismissed": "Skipped",
+  "ctaSave": "Save",
+  "ctaSaved": "Saved",
+  "ctaReport": "Report issue",
+  "ctaReportSent": "Report sent",
+  "ctaUrgent": "Starving",
+  "ctaRetry": "Try again",
+  "ctaEnterAddress": "Enter address",
+  "ctaClose": "Close",
+  "ctaWhy": "Why this place?",
+  "ctaSkip": "Skip",
+  "ctaNext": "Continue",
+  "ctaDone": "Done",
+  "ctaUpdateLocation": "Update",
+  "resultToday": "Today: {dish}",
+  "@resultToday": {
+    "placeholders": {
+      "dish": {}
+    }
+  },
+  "resultUrgentPick": "Picked for you: {place}",
+  "@resultUrgentPick": {
+    "placeholders": {
+      "place": {}
+    }
+  },
+  "resultSpinCountdown": "Wait {seconds}s",
+  "@resultSpinCountdown": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "hubHint": "No idea what to eat? Leave it to the spin.",
+  "badgeOpen": "OPEN",
+  "badgeClosingSoon": "CLOSING · {minutes}′ left",
+  "@badgeClosingSoon": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "badgeClosed": "CLOSED",
+  "badgeBestMatch": "BEST MATCH",
+  "badgeAd": "AD",
+  "badgeCachedData": "SAVED DATA",
+  "badgeVerified": "VERIFIED",
+  "badgeTopRated": "TOP RATED",
+  "badgeNew": "NEW",
+  "badgeCheap": "CHEAP",
+  "noteHoliday": "HOLIDAY",
+  "noteClosedForHoliday": "CLOSED FOR HOLIDAY",
+  "dqCached": "Saved data · {age}s ago",
+  "@dqCached": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "dqStale": "Older data, lower trust",
+  "dqProviderDegraded": "Place source is down · using {providers}",
+  "@dqProviderDegraded": {
+    "placeholders": {
+      "providers": {}
+    }
+  },
+  "dqOfflineBundle": "Offline · spun on device, places from last save",
+  "emptyMatchesHeadline": "No place fits nearby",
+  "emptyMatchesBody": "Try loosening one step below.",
+  "relaxStep": "Expand to {to} · {extra} more places",
+  "@relaxStep": {
+    "placeholders": {
+      "to": {},
+      "extra": {
+        "type": "int"
+      }
+    }
+  },
+  "relaxRadiusLabel": "radius",
+  "relaxPriceLabel": "price level",
+  "relaxDietLabel": "diet",
+  "substituteHeading": "Try something close",
+  "urgentNoneHeadline": "Nothing is open near you right now",
+  "urgentNoneBody": "Places opening soon:",
+  "genericEmpty": "Nothing here yet",
+  "errValidation": "Something needs fixing, see the hints in the form.",
+  "errBudgetTooLow": "Budget must be at least 10,000₫",
+  "errDietEmptyPool": "Your diet rules removed every dish",
+  "errDietConflictWithType": "The dish you avoid is not in the selected type",
+  "errFilterContradiction": "Two filters disagree with each other",
+  "errPoolTooSmall": "Too few dishes left to spin",
+  "errRateLimited": "You are spinning fast, wait {seconds}s",
+  "@errRateLimited": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "errUnauthenticated": "Session expired. Retrying.",
+  "errConsentRequired": "Allow location access to find places",
+  "errNotFound": "Not found",
+  "errDishNotFound": "This dish is no longer in the catalogue",
+  "errIdempotencyReplay": "Already saved, no duplicate created",
+  "errRoomExpired": "Room closed",
+  "errRoomUpdated": "Room changed, refreshed",
+  "errProviderUnavailable": "Place source is down · showing saved data",
+  "errDegradedNoResult": "Could not load results yet",
+  "errReportLimit": "You reached 5 reports for today",
+  "errReportDuplicate": "You already reported this",
+  "errOutsideServiceArea": "No place data for this area yet",
+  "errLocationRequired": "Tell the app where you are",
+  "errFutureDate": "Future dates are not accepted",
+  "errUnknown": "Something went wrong",
+  "errOff": "Turned off for this session",
+  "filterGroupMeal": "Meal",
+  "filterGroupMoney": "Money",
+  "filterGroupTypeRegion": "Type / Region",
+  "filterGroupMoodParty": "Mood / People",
+  "filterBudget": "Budget per meal",
+  "filterPriceMax": "Max price level",
+  "filterTemp": "Hot or cold",
+  "filterPartySize": "People",
+  "filterAntiRepeat": "No repeats for",
+  "filterDaysN": "{days} days",
+  "@filterDaysN": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "filterDaysOff": "Off",
+  "filterLockedHint": "Wheel is locked",
+  "filterDietTitle": "Diet and allergies",
+  "filterDietLockedHint": "Saved rules can only be removed under You",
+  "filterDietAdd": "Add a rule for this spin",
+  "filterPoolLine": "{initial} dishes, {remaining} left after diet and skips",
+  "@filterPoolLine": {
+    "placeholders": {
+      "initial": {
+        "type": "int"
+      },
+      "remaining": {
+        "type": "int"
+      }
+    }
+  },
+  "filterPoolRemoved": "Removed: diet {diet} · manual {excluded} · locked {locked} · filters {filters} · repeats {antiRepeat}",
+  "@filterPoolRemoved": {
+    "placeholders": {
+      "diet": {
+        "type": "int"
+      },
+      "excluded": {
+        "type": "int"
+      },
+      "locked": {
+        "type": "int"
+      },
+      "filters": {
+        "type": "int"
+      },
+      "antiRepeat": {
+        "type": "int"
+      }
+    }
+  },
+  "filterSeedDebug": "client_seed (debug build only)",
+  "mealBreakfast": "Breakfast",
+  "mealLunch": "Lunch",
+  "mealDinner": "Dinner",
+  "mealLateNight": "Late night",
+  "regionNorth": "North",
+  "regionCentral": "Central",
+  "regionSouth": "South",
+  "regionAll": "Everywhere",
+  "tempHot": "Hot",
+  "tempWarm": "Warm",
+  "tempCold": "Cold",
+  "tempAny": "Anything",
+  "moodComfort": "Filling",
+  "moodLight": "Light",
+  "moodGreedy": "Indulgent",
+  "moodFresh": "Fresh",
+  "moodLocalSpecialty": "Local speciality",
+  "moodQuick": "Quick",
+  "typeNoodle": "Noodle",
+  "typeRice": "Rice",
+  "typeBread": "Bread",
+  "typeSweet": "Sweet",
+  "typeGrill": "Grill",
+  "typeSalad": "Salad / veg",
+  "typeDrink": "Drink",
+  "typeSnack": "Snack",
+  "dietVegetarian": "Vegetarian",
+  "dietVegan": "Vegan",
+  "dietHalal": "Halal",
+  "dietNoPork": "No pork",
+  "dietNoBeef": "No beef",
+  "distanceMeters": "{m} m",
+  "@distanceMeters": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "distanceKm": "{km} km",
+  "@distanceKm": {
+    "placeholders": {
+      "km": {}
+    }
+  },
+  "priceVnd": "{vnd}₫",
+  "@priceVnd": {
+    "placeholders": {
+      "vnd": {
+        "type": "String"
+      }
+    }
+  },
+  "ratingValue": "{rating}★",
+  "@ratingValue": {
+    "placeholders": {
+      "rating": {}
+    }
+  },
+  "ratingWithCount": "{rating}★ from {count} reviews",
+  "@ratingWithCount": {
+    "placeholders": {
+      "rating": {},
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rawRatingHint": "Raw average {rating}, before small-sample shrink",
+  "@rawRatingHint": {
+    "placeholders": {
+      "rating": {}
+    }
+  },
+  "whyHeadline": "{rating}★ from {count} reviews · {distance} m away",
+  "@whyHeadline": {
+    "placeholders": {
+      "rating": {},
+      "count": {
+        "type": "int"
+      },
+      "distance": {}
+    }
+  },
+  "whyQTop": "High score from {rating}★ across {count} reviews",
+  "@whyQTop": {
+    "placeholders": {
+      "rating": {},
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whyQFewReviews": "Score is shaky, only {count} reviews",
+  "@whyQFewReviews": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whyDTop": "{distance} m from you",
+  "@whyDTop": {
+    "placeholders": {
+      "distance": {}
+    }
+  },
+  "whyPInBudget": "{avg_price} fits your {budget} budget",
+  "@whyPInBudget": {
+    "placeholders": {
+      "avg_price": {},
+      "budget": {}
+    }
+  },
+  "whyPNearBudget": "{avg_price} is close to budget",
+  "@whyPNearBudget": {
+    "placeholders": {
+      "avg_price": {}
+    }
+  },
+  "whyOOpen45m": "Open for another {minutes} minutes",
+  "@whyOOpen45m": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "whyOClosingSoon": "Closes in {minutes} minutes",
+  "@whyOClosingSoon": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "whyUExplore": "You have not eaten here, give it a go",
+  "whyWeights": "Q {q}% · D {d}% · P {p}% · O {o}% · U {u}%",
+  "@whyWeights": {
+    "placeholders": {
+      "q": {},
+      "d": {},
+      "p": {},
+      "o": {},
+      "u": {}
+    }
+  },
+  "whyFormulaVersion": "formula {version}",
+  "@whyFormulaVersion": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "whyPenalty": "Minus {value}: {reason}",
+  "@whyPenalty": {
+    "placeholders": {
+      "value": {},
+      "reason": {}
+    }
+  },
+  "penaltyStaleVerification": "Verification is {days} days old",
+  "@penaltyStaleVerification": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "penaltyLowDataConfidence": "Low source confidence",
+  "penaltyReported": "Recently reported, awaiting review",
+  "relaxRadius": "Widen radius to {to}",
+  "@relaxRadius": {
+    "placeholders": {
+      "to": {}
+    }
+  },
+  "relaxPrice": "Raise price level to {to}",
+  "@relaxPrice": {
+    "placeholders": {
+      "to": {}
+    }
+  },
+  "relaxDiet": "Drop one diet rule",
+  "substituteSimilarCategory": "Same dish family",
+  "substituteSameMealSlot": "Same meal slot",
+  "urgentNearbyMatch": "Matches what you just spun",
+  "urgentNoneOpen": "No place open within {radius} m",
+  "@urgentNoneOpen": {
+    "placeholders": {
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "vetoTriedAndDisliked": "You disliked this dish before",
+  "grpTieSpun": "Tied vote, spin decided it",
+  "promptRateAfterVisit": "How was it?",
+  "budgetNearLimit": "Close to your weekly budget",
+  "urgentDecision": "Widened to {radius} km · checked {count} places",
+  "@urgentDecision": {
+    "placeholders": {
+      "radius": {},
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "urgentHeading": "Closest and open now",
+  "alternativesHeading": "Two other options",
+  "altClosing": "{distance} m away, closes in {minutes} min",
+  "@altClosing": {
+    "placeholders": {
+      "distance": {},
+      "minutes": {}
+    }
+  },
+  "altOpenLater": "Opens at {opens_at}, {distance} m away",
+  "@altOpenLater": {
+    "placeholders": {
+      "opens_at": {},
+      "distance": {}
+    }
+  },
+  "altFarther": "{distance} m away, open for {minutes} min",
+  "@altFarther": {
+    "placeholders": {
+      "distance": {},
+      "minutes": {}
+    }
+  },
+  "amenityParking": "Parking",
+  "amenityAc": "Air conditioning",
+  "amenityGroupFriendly": "Groups welcome",
+  "amenityTakeaway": "Takeaway",
+  "amenityWifi": "Wi-Fi",
+  "detailHours": "Opening hours",
+  "detailMenu": "Menu",
+  "detailPhotos": "Photos",
+  "detailReviewSplit": "{good} good · {ok} okay · {bad} bad",
+  "@detailReviewSplit": {
+    "placeholders": {
+      "good": {
+        "type": "int"
+      },
+      "ok": {
+        "type": "int"
+      },
+      "bad": {
+        "type": "int"
+      }
+    }
+  },
+  "detailCall": "Call",
+  "detailBook": "Book a table",
+  "detailDelivery": "Delivery",
+  "detailCredit": "Photo: {credit}",
+  "@detailCredit": {
+    "placeholders": {
+      "credit": {}
+    }
+  },
+  "detailReportCount": "{count} reports in 30 days, {pending} pending",
+  "@detailReportCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "pending": {
+        "type": "int"
+      }
+    }
+  },
+  "reportSheetTitle": "Report wrong information",
+  "reportKindClosed": "Place closed",
+  "reportKindWrongHours": "Wrong hours",
+  "reportKindWrongPrice": "Wrong price",
+  "reportKindWrongLocation": "Wrong location",
+  "reportKindWrongName": "Wrong name",
+  "reportKindDuplicate": "Duplicate place",
+  "reportKindOther": "Other",
+  "reportDetailHint": "Add detail if needed (max 500 characters)",
+  "reportCooldown": "Wait {seconds}s to report again",
+  "@reportCooldown": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "onboardStep1Title": "Where do you eat?",
+  "onboardStep1Body": "Pick a location or type an address. Declining GPS still works.",
+  "onboardStep2Title": "Anything you avoid?",
+  "onboardStep2Body": "Hard rules can only be added, never switched off from the spin screen.",
+  "onboardStep3Title": "Budget per meal?",
+  "onboardStep3Body": "Used for the fits-your-pocket score.",
+  "onboardDone": "Done, let's spin",
+  "settingsTheme": "Light or dark",
+  "settingsThemeSystem": "Follow system",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark",
+  "settingsLanguage": "Language",
+  "settingsReduceMotion": "Reduce motion",
+  "settingsReduceMotionHint": "Skip the wheel, show the result at once",
+  "settingsSound": "Sound",
+  "settingsSoundHint": "Click when the wheel stops",
+  "settingsHaptics": "Haptics",
+  "settingsHapticsHint": "A short buzz when the result locks",
+  "settingsMotionSection": "Motion & sound",
+  "proofCopy": "Copy",
+  "proofCopied": "Copied",
+  "settingsHighContrast": "High contrast",
+  "settingsLocation": "Location",
+  "settingsProof": "Verify this spin",
+  "settingsProofSeed": "seed {seed}",
+  "@settingsProofSeed": {
+    "placeholders": {
+      "seed": {}
+    }
+  },
+  "settingsProofHash": "sha256 {hash}",
+  "@settingsProofHash": {
+    "placeholders": {
+      "hash": {}
+    }
+  },
+  "settingsLocationChanged": "Location changed · Update?",
+  "settingsForceUpgrade": "This build is too old, update to continue",
+  "semSpinButton": "Spin for a dish",
+  "semRowLabel": "{name}, {distance} metres away, {rating} points, {openState}",
+  "@semRowLabel": {
+    "placeholders": {
+      "name": {},
+      "distance": {
+        "type": "int"
+      },
+      "rating": {},
+      "openState": {}
+    }
+  },
+  "semOpen": "open now",
+  "semClosingSoon": "closing soon",
+  "semClosed": "closed",
+  "semWheelUnfocusable": "The wheel is decoration, the result is below",
+  "semDisabledHint": "Not available: {reason}",
+  "@semDisabledHint": {
+    "placeholders": {
+      "reason": {}
+    }
+  },
+  "hubQuestion": "What to eat today?",
+  "hubSub": "One spin, no overthinking.",
+  "hubWheelHint": "Eight food groups, one spin.",
+  "hubFilterSummary": "{count} filters on",
+  "hubFilterNone": "No filters yet",
+  "hubLocationMissing": "Pick where you are",
+  "hubLocationDemo": "Tap to change location",
+  "matchCount": "{count} places near you",
+  "matchNote": "Ranked by how well they fit you",
+  "matchBack": "Back to spin",
+  "whyTitle": "Why this place?",
+  "whyPenaltyTitle": "Points removed",
+  "whyContribution": "+{value}",
+  "filterTitle": "Filters",
+  "filterReset": "Clear all",
+  "filterLock": "Lock {type}",
+  "filterUnlock": "Unlock",
+  "filterLockHint": "Lock one group, spin the rest.",
+  "detailAddress": "Address",
+  "detailAmenities": "Amenities",
+  "detailSimilar": "Similar places",
+  "detailToday": "Today",
+  "detailClosedDay": "Closed",
+  "detailOpen": "Open",
+  "detailPrice": "Average price",
+  "detailDistance": "From you",
+  "detailReviews": "{count} reviews",
+  "@detailReviews": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "discoverTitle": "Around you",
+  "discoverRadius": "Within {radius}",
+  "youTitle": "You",
+  "youGuest": "You are using a guest session",
+  "youProofEmpty": "No spins yet",
+  "youVersion": "Version {version}",
+  "urgentOneTap": "One tap, go.",
+  "reportKindLabel": "What is wrong?",
+  "reportSubmit": "Send report",
+  "visitSaved": "Saved to your journal",
+  "loading": "Loading",
+  "languageVi": "Tiếng Việt",
+  "languageEn": "English",
+  "themeLabel": "Appearance",
+  "onboardSkipHint": "You can skip and change this later in You.",
+  "onboardAddressHint": "Enter your address",
+  "onboardAddressPick": "Or pick one",
+  "budgetPerMeal": "{vnd} per meal",
+  "matchDishLabel": "Today's dish",
+  "detailReported": "Report this place",
+  "detailCallNow": "Call the place",
+  "actionClose": "Close",
+  "spinOfflineNote": "No network, you can still spin.",
+  "wheelIdleHint": "Tap Spin to start",
+  "hubStamp": "SPIN IT",
+  "viewPlaces": "See places",
+  "detailHoursToday": "Today {from} to {to}",
+  "filterBudgetOff": "No limit",
+  "priceLevel1": "≤ 25k",
+  "priceLevel2": "25–50k",
+  "priceLevel3": "50–150k",
+  "priceLevel4": "> 150k",
+  "filterLockedChip": "Lock {type}",
+  "whyShort": "Why",
+  "matchClose": "Close results"
+}

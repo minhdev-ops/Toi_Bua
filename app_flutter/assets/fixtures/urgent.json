@@ -1,0 +1,209 @@
+{
+  "place": {
+    "id": "plc_01J8ZX7Q5T0W2Y4F",
+    "name": "Cơm Tấm Ba Ghiền",
+    "name_en": "Ba Ghiền Broken Rice",
+    "address": "84 Đặng Văn Ngữ, Phường Xuân Hòa, Phú Nhuận",
+    "geo": {
+      "lat": 10.7912,
+      "lng": 106.6781
+    },
+    "travel_mode": "bike",
+    "distance_m": 640,
+    "walk_minutes": null,
+    "price_level": 2,
+    "price_range_vnd": {
+      "min": 38000,
+      "max": 60000
+    },
+    "avg_price_vnd": 46000,
+    "rating_raw": 4.38,
+    "rating_bayesian": 4.21,
+    "review_count": 311,
+    "open_status": {
+      "is_open": true,
+      "opens_at": "2026-11-01T02:00:00Z",
+      "closes_at": "2026-11-01T06:51:00Z",
+      "closes_in_min": 51,
+      "closing_soon": false,
+      "o_score": 1.0,
+      "tz": "Asia/Ho_Chi_Minh",
+      "is_exception_day": false,
+      "note_key": null
+    },
+    "cuisine_tags": [
+      "Cơm tấm",
+      "Nướng"
+    ],
+    "dish_highlights": [
+      {
+        "dish_id": "dsh_01KB",
+        "name": "Cơm tấm sườn bì chả",
+        "confidence": 0.95,
+        "price_vnd": 46000
+      }
+    ],
+    "badges": [
+      "verified",
+      "top_rated"
+    ],
+    "source": {
+      "provider": "osm+community",
+      "external_id": "node/3382019447",
+      "verified_at": "2026-09-28T00:00:00Z",
+      "data_confidence": 0.88
+    },
+    "is_sponsored": false,
+    "score_breakdown": {
+      "formula_version": "2026.10",
+      "weights": {
+        "Q": 0.35,
+        "D": 0.25,
+        "P": 0.15,
+        "O": 0.15,
+        "U": 0.1
+      },
+      "score_total": 60.45,
+      "components": [
+        {
+          "key": "Q",
+          "label": "Chất lượng",
+          "value_norm": 0.55,
+          "contribution": 19.25,
+          "top": true,
+          "facts": {
+            "rating_bayesian": 4.21,
+            "review_count": 311,
+            "m_threshold": 20
+          },
+          "why_key": "why.q.top",
+          "why_params": {
+            "rating": "4.2",
+            "count": "311"
+          }
+        },
+        {
+          "key": "D",
+          "label": "Gần bạn",
+          "value_norm": 0.59,
+          "contribution": 14.75,
+          "facts": {
+            "distance_m": 640,
+            "lambda": 1200,
+            "travel_mode": "bike",
+            "formula": "exp(-640/1200)"
+          },
+          "why_key": "why.d.top",
+          "why_params": {
+            "distance": "640"
+          }
+        },
+        {
+          "key": "P",
+          "label": "Hợp túi tiền",
+          "value_norm": 0.9,
+          "contribution": 13.5,
+          "facts": {
+            "avg_price_vnd": 46000,
+            "budget_vnd": 50000
+          },
+          "why_key": "why.p.in_budget",
+          "why_params": {
+            "avg_price": "46.000₫",
+            "budget": "50.000₫"
+          }
+        },
+        {
+          "key": "O",
+          "label": "Đang mở",
+          "value_norm": 0.65,
+          "contribution": 9.75,
+          "facts": {
+            "closes_in_min": 51
+          },
+          "why_key": "why.o.open_45m",
+          "why_params": {
+            "minutes": "51"
+          }
+        },
+        {
+          "key": "U",
+          "label": "Hợp khẩu vị",
+          "value_norm": 0.32,
+          "contribution": 3.2,
+          "facts": {
+            "favourite": false,
+            "similarity": 0.36,
+            "never_visited": true
+          },
+          "why_key": "why.u.explore",
+          "why_params": {}
+        }
+      ],
+      "penalty": {
+        "total": 0.0,
+        "items": []
+      },
+      "top_component": "Q"
+    },
+    "why": {
+      "headline": "Đang mở, cách 640 m, 4,2★ từ 311 đánh giá",
+      "bullets": [
+        "Mở thêm 51 phút nữa",
+        "46.000₫ nằm trong ngân sách 50.000₫"
+      ],
+      "key": "why.headline",
+      "params": {
+        "rating": "4.2",
+        "count": "311",
+        "distance": "640"
+      }
+    }
+  },
+  "decision": {
+    "radius_m_used": 2500,
+    "expanded": true,
+    "candidates_considered": 22,
+    "one_tap_action": "navigate",
+    "fallback_dish": {
+      "id": "dsh_01J8",
+      "name": "Bún bò Huế",
+      "reason_key": "urgent.nearby_match"
+    }
+  },
+  "alternatives": [
+    {
+      "id": "plc_01J8ZX5N3R8U0W2D",
+      "name": "Bún bò Cô Mai",
+      "why_key": "alt.closing",
+      "why_params": {
+        "distance": "900",
+        "minutes": "25"
+      }
+    },
+    {
+      "id": "plc_01J8ZX6P4S9V1X3E",
+      "name": "Bún bò Gia Truyền 79",
+      "why_key": "alt.farther",
+      "why_params": {
+        "distance": "1,200",
+        "minutes": "95"
+      }
+    }
+  ],
+  "open_status": {
+    "is_open": true,
+    "opens_at": "2026-11-01T02:00:00Z",
+    "closes_at": "2026-11-01T06:51:00Z",
+    "closes_in_min": 51,
+    "closing_soon": false,
+    "o_score": 1.0,
+    "tz": "Asia/Ho_Chi_Minh",
+    "is_exception_day": false,
+    "note_key": null
+  },
+  "meta": {
+    "data_quality": "fresh",
+    "latency_ms": 640
+  }
+}

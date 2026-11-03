@@ -1,0 +1,53 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: identity
+          uri: http://identity:8081
+          predicates:
+            - Path=/v1/auth/**
+            - Path=/v1/me/**
+            - Path=/v1/config
+            - Path=/.well-known/jwks.json
+        - id: roulette
+          uri: http://roulette:8082
+          predicates:
+            - Path=/v1/dishes/**
+            - Path=/v1/spins/**
+            - Path=/v1/exclusions
+        - id: place
+          uri: http://place:8083
+          predicates:
+            - Path=/v1/places/**
+            - Path=/v1/geocode
+            - Path=/v1/user-locations/**
+            - Path=/v1/matches
+        - id: ranking
+          uri: http://ranking:8084
+          predicates:
+            - Path=/v1/rank/**
+        - id: journal
+          uri: http://journal:8085
+          predicates:
+            - Path=/v1/journal/**
+      default-filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 60
+            redis-rate-limiter.burstCapacity: 100
+            redis-rate-limiter.requestedTokens: 1
+  data:
+    redis:
+      cluster:
+        nodes: redis1:7000,redis2:7000,redis3:7000,redis4:7000,redis5:7000,redis6:7000
+app:
+  cursor-secret: change-me-cursor-secret
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

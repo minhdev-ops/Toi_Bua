@@ -1,0 +1,29 @@
+{
+  "dish": {
+    "id": "dsh_01KD",
+    "name": "Chè ba màu",
+    "category_path": ["Chè - Kem - Bánh ngọt", "Chè"]
+  },
+  "items": [],
+  "relaxation": {
+    "applied": false,
+    "steps_available": [
+      { "dimension": "radius_m", "from": 1500, "to": 2500, "expected_extra": 6, "why_key": "relax.radius" },
+      { "dimension": "price_level_max", "from": 2, "to": 3, "expected_extra": 3, "why_key": "relax.price" },
+      { "dimension": "diet", "from": "no_pork", "to": "off", "expected_extra": 2, "why_key": "relax.diet" }
+    ]
+  },
+  "substitute_dishes": [
+    { "id": "dsh_01KF", "name": "Sữa chua dẻo", "similarity": 0.68, "reason_key": "substitute.similar_category" },
+    { "id": "dsh_01KG", "name": "Cà phê sữa đá", "similarity": 0.51, "reason_key": "substitute.same_meal_slot" }
+  ],
+  "context_used": null,
+  "meta": {
+    "data_quality": "fresh",
+    "providers_used": ["db"],
+    "formula_version": "2026.10",
+    "candidate_count": 0,
+    "returned": 0,
+    "latency_ms": { "total": 320, "db": 41, "provider": 0, "scoring": 0 }
+  }
+}

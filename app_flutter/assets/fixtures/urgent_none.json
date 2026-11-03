@@ -1,0 +1,35 @@
+{
+  "place": null,
+  "decision": {
+    "radius_m_used": 4000,
+    "expanded": true,
+    "candidates_considered": 0,
+    "one_tap_action": "none",
+    "notify_key": "urgent.none_open"
+  },
+  "alternatives": [
+    {
+      "id": "plc_01J8ZX8R6U1X3Z5G",
+      "name": "Cơm Gà Ms. Hoa",
+      "why_key": "alt.open_later",
+      "why_params": {
+        "opens_at": "15:30",
+        "distance": "700"
+      }
+    },
+    {
+      "id": "plc_01J8ZX9S7V2Y4A6H",
+      "name": "Bánh Xèo 85",
+      "why_key": "alt.open_later",
+      "why_params": {
+        "opens_at": "16:00",
+        "distance": "1,400"
+      }
+    }
+  ],
+  "open_status": null,
+  "meta": {
+    "data_quality": "fresh",
+    "latency_ms": 410
+  }
+}

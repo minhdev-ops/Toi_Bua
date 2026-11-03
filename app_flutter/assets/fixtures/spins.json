@@ -1,0 +1,71 @@
+{
+  "spin_id": "spn_01J8Z6Q9K3M2T7V1",
+  "created_at": "2026-11-01T03:20:00Z",
+  "dish": {
+    "id": "dsh_01J8",
+    "name": "Bún bò Huế",
+    "name_en": "Bún bò Huế",
+    "category_path": ["Món nước", "Bún", "Bún bò"],
+    "category_id": "cat_01JA",
+    "region": "central",
+    "temp": "hot",
+    "meal": ["breakfast", "lunch"],
+    "price_level": 2,
+    "tags": [{ "id": "tag_pork", "kind": "diet", "label": "Không chay" }],
+    "image_url": "https://cdn.angi.example/dsh_01J8.webp"
+  },
+  "proof": {
+    "seed_b64": "kQ2vH9pR4mT7bX1sL8nJeg==",
+    "sha256_result": "3f9a41c2d5e8b6f07a1c9e4d2b8f6a30c1",
+    "algorithm": "weighted-csprng-v1",
+    "pool_hash": "b1e4c9d7a2053f88e6b140cd9a77",
+    "verify_url": "/v1/spins/spn_01J8Z6Q9K3M2T7V1/verify"
+  },
+  "pool": {
+    "size_initial": 342,
+    "size_after_hard_filters": 61,
+    "size_final": 44,
+    "removed": { "diet_hard": 18, "excluded": 3, "locked": 260, "filters": 17, "anti_repeat": 0 }
+  },
+  "anti_repeat": {
+    "days_window": 3,
+    "tau_days": 3.0,
+    "applied": [{ "dish_id": "dsh_01KA", "factor": 0.32, "days_since": 1 }],
+    "max_penalty": 0.68
+  },
+  "applied_filters": {
+    "meal": ["lunch"],
+    "price_level_max": 2,
+    "locked": { "category_id": "cat_01J9" }
+  },
+  "animation": {
+    "style": "wheel",
+    "duration_ms": 2600,
+    "reduce_motion": false,
+    "sound": true,
+    "haptics": true,
+    "target_position": 18,
+    "wheel_items": [
+      "dsh_01KG",
+      "dsh_01KB",
+      "dsh_01J8",
+      "dsh_01KC",
+      "dsh_01KD",
+      "dsh_01KE",
+      "dsh_01K4",
+      "dsh_01KF"
+    ],
+    "result_index": 2
+  },
+  "next": {
+    "action": "fetch_places",
+    "method": "POST",
+    "path": "/v1/matches",
+    "suggested_body": { "dish_id": "dsh_01J8", "radius_m": 1500, "limit": 3 }
+  },
+  "meta": {
+    "data_quality": "fresh",
+    "personalization_used": true,
+    "experiment_arms": { "anti_repeat_tau": "3d" }
+  }
+}

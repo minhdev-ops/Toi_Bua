@@ -1,0 +1,36 @@
+{
+  "config_version": "2026.11.01.3",
+  "policy_version": "2026.10",
+  "min_app_version": { "ios": "1.2.0", "android": "1.2.0" },
+  "force_upgrade": false,
+  "flags": {
+    "roulette_v2": "on",
+    "group_rooms": "off",
+    "journal": "off",
+    "reviews": "off",
+    "weather_context": "off",
+    "merchant_portal": "off"
+  },
+  "ranking_weights": { "Q": 0.35, "D": 0.25, "P": 0.15, "O": 0.15, "U": 0.10, "version": "2026.10" },
+  "spin": {
+    "anti_repeat_days_default": 3,
+    "tau_days": 3.0,
+    "min_pool": 3,
+    "rate_limit_per_min": 60
+  },
+  "place": {
+    "radius_default_m": 1500,
+    "radius_max_m": 5000,
+    "closing_soon_min": 30,
+    "open_min_left_to_score_1": 45,
+    "urgent_radius_steps": [1500, 2500, 4000]
+  },
+  "animation_styles": ["wheel", "chest", "draw"],
+  "locale_supported": ["vi", "en"],
+  "dish_bundle_version": 20261101,
+  "feature_gates": {
+    "requires_consent_location": ["places_nearby", "urgent"],
+    "requires_account": ["lists", "sync", "share_card"]
+  },
+  "experiments": { "ranking_weights_v2": "control" }
+}

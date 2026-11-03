@@ -1,0 +1,8 @@
+{
+  "id": "vst_01J8Z8S7U1W3X5Y7",
+  "status": "arrived",
+  "occurred_at": "2026-11-01T03:35:00Z",
+  "ask_review": true,
+  "review_prompt_key": "prompt.rate_after_visit",
+  "budget_delta_vnd": 45000
+}

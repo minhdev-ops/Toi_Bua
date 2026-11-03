@@ -1,0 +1,568 @@
+{
+  "dish": {
+    "id": "dsh_01J8",
+    "name": "Bún bò Huế",
+    "category_path": [
+      "Món nước",
+      "Bún",
+      "Bún bò"
+    ]
+  },
+  "items": [
+    {
+      "id": "plc_01J8ZX4M2Q7T9V1C",
+      "name": "Bún bò O Xuân",
+      "name_en": "O Xuân Bún bò",
+      "address": "12 Lê Lợi, Phường Bến Thành, Quận 1",
+      "geo": {
+        "lat": 10.7761,
+        "lng": 106.7039
+      },
+      "travel_mode": "walk",
+      "distance_m": 420,
+      "walk_minutes": 6,
+      "price_level": 2,
+      "price_range_vnd": {
+        "min": 35000,
+        "max": 55000
+      },
+      "avg_price_vnd": 42000,
+      "rating_raw": 4.41,
+      "rating_bayesian": 4.28,
+      "review_count": 182,
+      "open_status": {
+        "is_open": true,
+        "opens_at": "2026-11-01T02:00:00Z",
+        "closes_at": "2026-11-01T06:30:00Z",
+        "closes_in_min": 47,
+        "closing_soon": false,
+        "o_score": 1.0,
+        "tz": "Asia/Ho_Chi_Minh",
+        "is_exception_day": false,
+        "note_key": null
+      },
+      "cuisine_tags": [
+        "Món nước",
+        "Bún bò"
+      ],
+      "dish_highlights": [
+        {
+          "dish_id": "dsh_01J8",
+          "name": "Bún bò Huế",
+          "confidence": 0.93,
+          "price_vnd": 45000
+        },
+        {
+          "dish_id": "dsh_01K4",
+          "name": "Phở bò",
+          "confidence": 0.61,
+          "price_vnd": 45000
+        }
+      ],
+      "badges": [
+        "top_rated"
+      ],
+      "source": {
+        "provider": "osm+community",
+        "external_id": "node/1102938471",
+        "verified_at": "2026-08-14T00:00:00Z",
+        "data_confidence": 0.81
+      },
+      "is_sponsored": false,
+      "score_breakdown": {
+        "formula_version": "2026.10",
+        "weights": {
+          "Q": 0.35,
+          "D": 0.25,
+          "P": 0.15,
+          "O": 0.15,
+          "U": 0.1
+        },
+        "score_total": 68.85,
+        "components": [
+          {
+            "key": "Q",
+            "label": "Chất lượng",
+            "value_norm": 0.71,
+            "contribution": 24.85,
+            "top": true,
+            "facts": {
+              "rating_bayesian": 4.3,
+              "review_count": 182,
+              "m_threshold": 20
+            },
+            "why_key": "why.q.top",
+            "why_params": {
+              "rating": "4.3",
+              "count": "182"
+            }
+          },
+          {
+            "key": "D",
+            "label": "Gần bạn",
+            "value_norm": 0.5,
+            "contribution": 12.5,
+            "facts": {
+              "distance_m": 420,
+              "lambda": 600,
+              "travel_mode": "walk",
+              "formula": "exp(-420/600)"
+            },
+            "why_key": "why.d.top",
+            "why_params": {
+              "distance": "420"
+            }
+          },
+          {
+            "key": "P",
+            "label": "Hợp túi tiền",
+            "value_norm": 1.0,
+            "contribution": 15.0,
+            "facts": {
+              "avg_price_vnd": 40000,
+              "budget_vnd": 60000
+            },
+            "why_key": "why.p.in_budget",
+            "why_params": {
+              "avg_price": "42.000₫",
+              "budget": "60.000₫"
+            }
+          },
+          {
+            "key": "O",
+            "label": "Đang mở",
+            "value_norm": 1.0,
+            "contribution": 15.0,
+            "facts": {
+              "closes_in_min": 47
+            },
+            "why_key": "why.o.open_45m",
+            "why_params": {
+              "minutes": "47"
+            }
+          },
+          {
+            "key": "U",
+            "label": "Hợp khẩu vị",
+            "value_norm": 0.55,
+            "contribution": 5.5,
+            "facts": {
+              "favourite": false,
+              "similarity": 0.62,
+              "never_visited": true
+            },
+            "why_key": "why.u.explore",
+            "why_params": {}
+          }
+        ],
+        "penalty": {
+          "total": 4.0,
+          "items": [
+            {
+              "reason": "stale_verification",
+              "days": 205,
+              "value": 4.0
+            }
+          ]
+        },
+        "top_component": "Q"
+      },
+      "why": {
+        "headline": "4,3★ từ 182 đánh giá · cách 420 m · đang mở tới 13:30",
+        "bullets": [
+          "Điểm cao nhờ 182 đánh giá thật",
+          "Cách bạn 6 phút đi bộ",
+          "Còn mở 47 phút"
+        ],
+        "key": "why.headline",
+        "params": {
+          "rating": "4.3",
+          "count": "182",
+          "distance": "420"
+        }
+      }
+    },
+    {
+      "id": "plc_01J8ZX5N3R8U0W2D",
+      "name": "Bún bò Cô Mai",
+      "name_en": "Cô Mai Bún bò",
+      "address": "48 Nguyễn Thị Minh Khai, Phường Bến Thành, Quận 1",
+      "geo": {
+        "lat": 10.7832,
+        "lng": 106.6921
+      },
+      "travel_mode": "walk",
+      "distance_m": 260,
+      "walk_minutes": 4,
+      "price_level": 3,
+      "price_range_vnd": {
+        "min": 50000,
+        "max": 70000
+      },
+      "avg_price_vnd": 58000,
+      "rating_raw": 4.12,
+      "rating_bayesian": 4.05,
+      "review_count": 96,
+      "open_status": {
+        "is_open": true,
+        "opens_at": "2026-11-01T03:00:00Z",
+        "closes_at": "2026-11-01T06:15:00Z",
+        "closes_in_min": 22,
+        "closing_soon": true,
+        "o_score": 0.5,
+        "tz": "Asia/Ho_Chi_Minh",
+        "is_exception_day": false,
+        "note_key": null
+      },
+      "cuisine_tags": [
+        "Món nước",
+        "Bún bò",
+        "Huế"
+      ],
+      "dish_highlights": [
+        {
+          "dish_id": "dsh_01J8",
+          "name": "Bún bò Huế",
+          "confidence": 0.88,
+          "price_vnd": 60000
+        }
+      ],
+      "badges": [
+        "verified"
+      ],
+      "source": {
+        "provider": "google_places",
+        "external_id": "ChIJq6qq-L0rdTER",
+        "verified_at": "2026-10-02T00:00:00Z",
+        "data_confidence": 0.74
+      },
+      "is_sponsored": false,
+      "score_breakdown": {
+        "formula_version": "2026.10",
+        "weights": {
+          "Q": 0.35,
+          "D": 0.25,
+          "P": 0.15,
+          "O": 0.15,
+          "U": 0.1
+        },
+        "score_total": 60.05,
+        "components": [
+          {
+            "key": "Q",
+            "label": "Chất lượng",
+            "value_norm": 0.62,
+            "contribution": 21.7,
+            "top": true,
+            "facts": {
+              "rating_bayesian": 4.05,
+              "review_count": 96,
+              "m_threshold": 20
+            },
+            "why_key": "why.q.top",
+            "why_params": {
+              "rating": "4.1",
+              "count": "96"
+            }
+          },
+          {
+            "key": "D",
+            "label": "Gần bạn",
+            "value_norm": 0.65,
+            "contribution": 16.25,
+            "facts": {
+              "distance_m": 260,
+              "lambda": 600,
+              "travel_mode": "walk",
+              "formula": "exp(-260/600)"
+            },
+            "why_key": "why.d.top",
+            "why_params": {
+              "distance": "260"
+            }
+          },
+          {
+            "key": "P",
+            "label": "Hợp túi tiền",
+            "value_norm": 0.7,
+            "contribution": 10.5,
+            "facts": {
+              "avg_price_vnd": 58000,
+              "budget_vnd": 60000
+            },
+            "why_key": "why.p.near_budget",
+            "why_params": {
+              "avg_price": "58.000₫"
+            }
+          },
+          {
+            "key": "O",
+            "label": "Đang mở",
+            "value_norm": 0.5,
+            "contribution": 7.5,
+            "facts": {
+              "closes_in_min": 22
+            },
+            "why_key": "why.o.closing_soon",
+            "why_params": {
+              "minutes": "22"
+            }
+          },
+          {
+            "key": "U",
+            "label": "Hợp khẩu vị",
+            "value_norm": 0.41,
+            "contribution": 4.1,
+            "facts": {
+              "favourite": false,
+              "similarity": 0.44,
+              "never_visited": true
+            },
+            "why_key": "why.u.explore",
+            "why_params": {}
+          }
+        ],
+        "penalty": {
+          "total": 0.0,
+          "items": []
+        },
+        "top_component": "Q"
+      },
+      "why": {
+        "headline": "Gần nhất, nhưng còn mở 22 phút",
+        "bullets": [
+          "Cách bạn 260 m",
+          "Đang sắp đóng"
+        ],
+        "key": "why.o.closing_soon",
+        "params": {
+          "minutes": "22"
+        }
+      }
+    },
+    {
+      "id": "plc_01J8ZX6P4S9V1X3E",
+      "name": "Bún bò Gia Truyền 79",
+      "name_en": "79 Heritage Bún bò",
+      "address": "79 Võ Văn Tần, Phường Xuân Hòa, Quận 3",
+      "geo": {
+        "lat": 10.7804,
+        "lng": 106.6902
+      },
+      "travel_mode": "walk",
+      "distance_m": 980,
+      "walk_minutes": 13,
+      "price_level": 1,
+      "price_range_vnd": {
+        "min": 28000,
+        "max": 40000
+      },
+      "avg_price_vnd": 34000,
+      "rating_raw": 3.95,
+      "rating_bayesian": 3.88,
+      "review_count": 41,
+      "open_status": {
+        "is_open": true,
+        "opens_at": "2026-11-01T02:30:00Z",
+        "closes_at": "2026-11-01T07:20:00Z",
+        "closes_in_min": 95,
+        "closing_soon": false,
+        "o_score": 1.0,
+        "tz": "Asia/Ho_Chi_Minh",
+        "is_exception_day": false,
+        "note_key": null
+      },
+      "cuisine_tags": [
+        "Món nước",
+        "Bún bò"
+      ],
+      "dish_highlights": [
+        {
+          "dish_id": "dsh_01J8",
+          "name": "Bún bò Huế",
+          "confidence": 0.72,
+          "price_vnd": 35000
+        },
+        {
+          "dish_id": "dsh_01KH",
+          "name": "Bún bò Nam Bộ",
+          "confidence": 0.55,
+          "price_vnd": 38000
+        }
+      ],
+      "badges": [
+        "cheap"
+      ],
+      "source": {
+        "provider": "osm",
+        "external_id": "node/2231048892",
+        "verified_at": "2026-05-20T00:00:00Z",
+        "data_confidence": 0.66
+      },
+      "is_sponsored": false,
+      "score_breakdown": {
+        "formula_version": "2026.10",
+        "weights": {
+          "Q": 0.35,
+          "D": 0.25,
+          "P": 0.15,
+          "O": 0.15,
+          "U": 0.1
+        },
+        "score_total": 53.1,
+        "components": [
+          {
+            "key": "Q",
+            "label": "Chất lượng",
+            "value_norm": 0.49,
+            "contribution": 17.15,
+            "facts": {
+              "rating_bayesian": 3.88,
+              "review_count": 41,
+              "m_threshold": 20
+            },
+            "why_key": "why.q.few_reviews",
+            "why_params": {
+              "rating": "3.9",
+              "count": "41"
+            }
+          },
+          {
+            "key": "D",
+            "label": "Gần bạn",
+            "value_norm": 0.2,
+            "contribution": 5.0,
+            "facts": {
+              "distance_m": 980,
+              "lambda": 600,
+              "travel_mode": "walk",
+              "formula": "exp(-980/600)"
+            },
+            "why_key": "why.d.top",
+            "why_params": {
+              "distance": "980"
+            }
+          },
+          {
+            "key": "P",
+            "label": "Hợp túi tiền",
+            "value_norm": 1.0,
+            "contribution": 15.0,
+            "top": true,
+            "facts": {
+              "avg_price_vnd": 34000,
+              "budget_vnd": 60000
+            },
+            "why_key": "why.p.in_budget",
+            "why_params": {
+              "avg_price": "34.000₫",
+              "budget": "60.000₫"
+            }
+          },
+          {
+            "key": "O",
+            "label": "Đang mở",
+            "value_norm": 1.0,
+            "contribution": 15.0,
+            "facts": {
+              "closes_in_min": 95
+            },
+            "why_key": "why.o.open_45m",
+            "why_params": {
+              "minutes": "95"
+            }
+          },
+          {
+            "key": "U",
+            "label": "Hợp khẩu vị",
+            "value_norm": 0.28,
+            "contribution": 2.8,
+            "facts": {
+              "favourite": false,
+              "similarity": 0.31,
+              "never_visited": true
+            },
+            "why_key": "why.u.explore",
+            "why_params": {}
+          }
+        ],
+        "penalty": {
+          "total": 1.85,
+          "items": [
+            {
+              "reason": "low_data_confidence",
+              "days": 165,
+              "value": 1.85
+            }
+          ]
+        },
+        "top_component": "P"
+      },
+      "why": {
+        "headline": "Rẻ nhất trong 3 quán, còn mở lâu",
+        "bullets": [
+          "34.000₫ mỗi tô",
+          "Còn mở 95 phút"
+        ],
+        "key": "why.p.in_budget",
+        "params": {
+          "avg_price": "34.000₫",
+          "budget": "60.000₫"
+        }
+      }
+    }
+  ],
+  "relaxation": {
+    "applied": false,
+    "steps_available": [
+      {
+        "dimension": "radius_m",
+        "from": 1500,
+        "to": 2500,
+        "expected_extra": 12,
+        "why_key": "relax.radius"
+      },
+      {
+        "dimension": "price_level_max",
+        "from": 2,
+        "to": 3,
+        "expected_extra": 4,
+        "why_key": "relax.price"
+      }
+    ]
+  },
+  "substitute_dishes": [
+    {
+      "id": "dsh_01KH",
+      "name": "Bún bò Nam Bộ",
+      "similarity": 0.74,
+      "reason_key": "substitute.similar_category"
+    }
+  ],
+  "context_used": {
+    "local_time": "10:20",
+    "dow": "sunday",
+    "weather": "rain",
+    "month_end": false,
+    "weight_overrides": {
+      "D": 0.3,
+      "O": 0.2
+    }
+  },
+  "meta": {
+    "data_quality": "provider_degraded",
+    "providers_used": [
+      "db",
+      "osm"
+    ],
+    "formula_version": "2026.10",
+    "candidate_count": 61,
+    "returned": 3,
+    "latency_ms": {
+      "total": 780,
+      "db": 45,
+      "provider": 0,
+      "scoring": 22
+    }
+  }
+}

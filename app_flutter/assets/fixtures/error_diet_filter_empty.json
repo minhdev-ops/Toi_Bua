@@ -1,0 +1,16 @@
+{
+  "error": {
+    "code": "DIET_FILTER_EMPTY",
+    "message": "Ràng buộc kiêng loại hết kho món.",
+    "details": [
+      { "field": "diet.strict", "rule": "conflict", "tag_id": "tag_gluten",
+        "conflicting_with": "cat_01J8", "message_key": "err.diet.empty_pool",
+        "removed_dishes": 342 },
+      { "field": "filters.type", "rule": "conflict", "value": "noodle",
+        "conflicting_with": "tag_gluten", "message_key": "err.diet.conflict_with_type" }
+    ],
+    "request_id": "01J8Z6Q9K3M2T7V1",
+    "retryable": false,
+    "doc_url": "https://api.angi.example/docs/errors#DIET_FILTER_EMPTY"
+  }
+}

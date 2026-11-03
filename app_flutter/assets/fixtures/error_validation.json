@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "Bộ lọc không hợp lệ.",
+    "details": [
+      { "field": "budget_vnd", "rule": "min", "allowed": 10000, "received": 5000, "message_key": "err.budget.too_low" }
+    ],
+    "request_id": "01J8Z6Q9K3M2T7V1",
+    "retryable": false,
+    "doc_url": "https://api.angi.example/docs/errors#VALIDATION_FAILED"
+  }
+}
