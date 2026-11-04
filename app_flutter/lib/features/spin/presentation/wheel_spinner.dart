@@ -190,15 +190,29 @@ class _WheelSpinnerState extends State<WheelSpinner> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     final segments = widget.items.map(widget.resolve).toList(growable: false);
     final strings = S.of(context);
-    final face = switch (widget.style) {
-      WheelStyle.wheel => WheelFace(
+    final controller = _controller;
+
+    // Trước đây build() đọc _progress mà không có gì lắng nghe controller ⇒ widget
+    // không bao giờ dựng lại: vòng quay đứng im suốt duration rồi nhảy thẳng ra tem
+    // kết quả. AnimatedBuilder dưới đây là thứ duy nhất khiến nó thực sự quay.
+    final Widget face;
+    switch (widget.style) {
+      case WheelStyle.wheel:
+        face = WheelFace(
           segments: segments,
           slotAngle: _slotAngle,
-          rotation: _rotationAt(_progress),
-        ),
-      WheelStyle.chest => ChestFace(segments: segments, resultIndex: widget.resultIndex, progress: _progress),
-      WheelStyle.draw => DrawFace(segments: segments, resultIndex: widget.resultIndex, progress: _progress),
-    };
+          rotation: _rotationAt(1),
+          rotationAnimation: controller?.drive(_SpinAngle(this)),
+        );
+      case WheelStyle.chest:
+      case WheelStyle.draw:
+        face = controller == null
+            ? _nonWheelFace(segments, 1)
+            : AnimatedBuilder(
+                animation: controller,
+                builder: (_, _) => _nonWheelFace(segments, _progress),
+              );
+    }
 
     // Vòng quay không phải thứ để thao tác: kết quả công bố bằng chữ (spec §Accessibility).
     return Semantics(
@@ -207,4 +221,29 @@ class _WheelSpinnerState extends State<WheelSpinner> with SingleTickerProviderSt
       child: SizedBox(width: widget.size, height: widget.size, child: face),
     );
   }
+
+  Widget _nonWheelFace(List<WheelSegment> segments, double progress) => switch (widget.style) {
+        WheelStyle.chest => ChestFace(
+            segments: segments,
+            resultIndex: widget.resultIndex,
+            progress: progress,
+          ),
+        WheelStyle.draw => DrawFace(
+            segments: segments,
+            resultIndex: widget.resultIndex,
+            progress: progress,
+          ),
+        WheelStyle.wheel => const SizedBox.shrink(),
+      };
+}
+
+/// Bọc [_WheelSpinnerState._rotationAt] thành `Animation<double>` để WheelFace tự lắng nghe.
+/// Mỗi frame chỉ đổi ma trận xoay ở tầng paint, không layout lại nhãn.
+class _SpinAngle extends Tween<double> {
+  _SpinAngle(this._owner) : super(begin: 0, end: 1);
+
+  final _WheelSpinnerState _owner;
+
+  @override
+  double lerp(double t) => _owner._rotationAt(t);
 }

@@ -12,6 +12,7 @@ class WheelFace extends StatelessWidget {
     required this.segments,
     required this.slotAngle,
     required this.rotation,
+    this.rotationAnimation,
     this.showLabels = true,
     super.key,
   });
@@ -21,7 +22,14 @@ class WheelFace extends StatelessWidget {
   /// 2π / wheel_items.length. Ô tính theo tâm, nên con trỏ ở đỉnh chỉ đúng
   /// result_index khi target_position % n == result_index.
   final double slotAngle;
+
+  /// Góc tĩnh. Dùng khi không truyền [rotationAnimation].
   final double rotation;
+
+  /// Góc động. Khi có, phần đĩa + nhãn được dựng **một lần** và chỉ đổi ma trận
+  /// xoay ở tầng paint; 8 nhãn không bị layout lại 60 lần/giây.
+  final Animation<double>? rotationAnimation;
+
   final bool showLabels;
 
   static const double _labelRadiusFactor = 0.64;
@@ -43,6 +51,39 @@ class WheelFace extends StatelessWidget {
         final labelWidth = (radius * _labelRadiusFactor * slotAngle * 0.95).clamp(56.0, 96.0);
         final labelSize = (radius * 0.085).clamp(11.0, 15.0);
 
+        final disc = SizedBox(
+          width: side,
+          height: side,
+          child: Stack(
+            alignment: Alignment.center,
+            clipBehavior: Clip.none,
+            children: [
+              CustomPaint(
+                size: Size(side, side),
+                painter: _WheelPainter(
+                  segments: segments,
+                  slotAngle: slotAngle,
+                  radius: radius,
+                  tokens: tokens,
+                ),
+              ),
+              if (showLabels)
+                for (var i = 0; i < segments.length; i++)
+                  _label(i, segments[i], roles, tokens, radius, labelWidth, labelSize),
+            ],
+          ),
+        );
+
+        final animation = rotationAnimation;
+        final Widget rotating = animation == null
+            ? Transform.rotate(angle: rotation, child: RepaintBoundary(child: disc))
+            : AnimatedBuilder(
+                animation: animation,
+                // child dựng một lần: mỗi frame chỉ có Transform.rotate được tạo lại.
+                child: RepaintBoundary(child: disc),
+                builder: (_, child) => Transform.rotate(angle: animation.value, child: child),
+              );
+
         return SizedBox(
           width: side,
           height: side,
@@ -50,31 +91,7 @@ class WheelFace extends StatelessWidget {
             clipBehavior: Clip.none,
             alignment: Alignment.center,
             children: [
-              Transform.rotate(
-                angle: rotation,
-                child: SizedBox(
-                  width: side,
-                  height: side,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    clipBehavior: Clip.none,
-                    children: [
-                      CustomPaint(
-                        size: Size(side, side),
-                        painter: _WheelPainter(
-                          segments: segments,
-                          slotAngle: slotAngle,
-                          radius: radius,
-                          tokens: tokens,
-                        ),
-                      ),
-                      if (showLabels)
-                        for (var i = 0; i < segments.length; i++)
-                          _label(i, segments[i], roles, tokens, radius, labelWidth, labelSize),
-                    ],
-                  ),
-                ),
-              ),
+              rotating,
               // Trục bánh: một vòng tròn surface, không thêm màu mới.
               Container(
                 width: side * 0.16,
@@ -189,7 +206,17 @@ class _WheelPainter extends CustomPainter {
       old.slotAngle != slotAngle ||
       old.radius != radius ||
       !identical(old.tokens, tokens) ||
-      old.segments.length != segments.length;
+      !_sameSegments(old.segments, segments);
+
+  /// So cả type: hai lượt quay có cùng số ô nhưng món khác nhau vẫn phải vẽ lại
+  /// hue, nếu chỉ so length thì đĩa giữ màu của lượt trước.
+  static bool _sameSegments(List<WheelSegment> a, List<WheelSegment> b) {
+    if (a.length != b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].id != b[i].id || a[i].type != b[i].type || a[i].label != b[i].label) return false;
+    }
+    return true;
+  }
 }
 
 class _PointerPainter extends CustomPainter {

@@ -225,6 +225,10 @@ class _SpinHubScreenState extends ConsumerState<SpinHubScreen> {
               )
             else if (showResult)
               ResultStamp(dish: spin.dish, maxSize: size * 0.72)
+            else if (flow.phase == SpinPhase.requesting)
+              // Chờ POST /v1/spins (~0,8 s) mà vòng quay đứng im thì cú chạm
+              // trông như không ăn. Quay ngay từ frame đầu để có phản hồi tức thì.
+              _RequestingWheel(size: size, motion: motion)
             else
               _IdleWheel(size: size, motion: motion),
             Positioned(
@@ -354,16 +358,7 @@ class _IdleWheel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    final segments = [
-      WheelSegment(id: 'noodle', label: s.typeNoodle, type: DishType.noodle),
-      WheelSegment(id: 'rice', label: s.typeRice, type: DishType.rice),
-      WheelSegment(id: 'bread', label: s.typeBread, type: DishType.bread),
-      WheelSegment(id: 'sweet', label: s.typeSweet, type: DishType.sweet),
-      WheelSegment(id: 'grill', label: s.typeGrill, type: DishType.grill),
-      WheelSegment(id: 'salad', label: s.typeSalad, type: DishType.salad),
-      WheelSegment(id: 'drink', label: s.typeDrink, type: DishType.drink),
-      WheelSegment(id: 'snack', label: s.typeSnack, type: DishType.snack),
-    ];
+    final segments = idleWheelSegments(s);
 
     final wheel = SizedBox(
       width: size,
@@ -385,6 +380,61 @@ class _IdleWheel extends StatelessWidget {
         child: Transform.scale(scale: 0.9 + 0.1 * value, child: child),
       ),
       child: wheel,
+    );
+  }
+}
+
+/// 8 nhóm món cho vòng quay lúc chưa có kết quả.
+List<WheelSegment> idleWheelSegments(S s) => [
+      WheelSegment(id: 'noodle', label: s.typeNoodle, type: DishType.noodle),
+      WheelSegment(id: 'rice', label: s.typeRice, type: DishType.rice),
+      WheelSegment(id: 'bread', label: s.typeBread, type: DishType.bread),
+      WheelSegment(id: 'sweet', label: s.typeSweet, type: DishType.sweet),
+      WheelSegment(id: 'grill', label: s.typeGrill, type: DishType.grill),
+      WheelSegment(id: 'salad', label: s.typeSalad, type: DishType.salad),
+      WheelSegment(id: 'drink', label: s.typeDrink, type: DishType.drink),
+      WheelSegment(id: 'snack', label: s.typeSnack, type: DishType.snack),
+    ];
+
+/// Vòng quay trong lúc chờ server. Quay đều một vòng mỗi 850 ms — phản hồi
+/// tức thì cho cú chạm, và chuyển liền mạch sang WheelSpinner khi kết quả về.
+class _RequestingWheel extends StatefulWidget {
+  const _RequestingWheel({required this.size, required this.motion});
+
+  final double size;
+  final AngiMotion motion;
+
+  @override
+  State<_RequestingWheel> createState() => _RequestingWheelState();
+}
+
+class _RequestingWheelState extends State<_RequestingWheel> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 850),
+  )..repeat();
+
+  late final Animation<double> _angle =
+      _controller.drive(Tween<double>(begin: 0, end: 2 * math.pi));
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final segments = idleWheelSegments(S.of(context));
+    return SizedBox(
+      width: widget.size,
+      height: widget.size,
+      child: WheelFace(
+        segments: segments,
+        slotAngle: 2 * math.pi / segments.length,
+        rotation: 0,
+        rotationAnimation: widget.motion.animates ? _angle : null,
+      ),
     );
   }
 }
